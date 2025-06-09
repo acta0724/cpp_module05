@@ -21,14 +21,28 @@ std::string const & ShrubberyCreationForm::getTarget() const {
     return this->_target;
 }
 
-void ShrubberyCreationForm::execute(Bureaucrat const & src) const {
-    if (src.getGrade() > this->getGradeToExecute()) {
-        throw GradeTooLowException();
-    }
+void ShrubberyCreationForm::execute(Bureaucrat const & executor) const {
+    this->beExecuted(executor);
     std::ofstream file(this->_target + ".shrubbery");
     if (!file.is_open()) {
-        throw std::runtime_error("Failed to create file");
+        std::cout << "Failed to create file" << std::endl;
+        return;
     }
+    file << "         *         " << std::endl;
+    file << "        /|\\        " << std::endl;
+    file << "       / | \\       " << std::endl;
+    file << "      /  |  \\      " << std::endl;
+    file << "     /   |   \\     " << std::endl;
+    file << "    *****|*****    " << std::endl;
+    file << "        /|\\        " << std::endl;
+    file << "       / | \\       " << std::endl;
+    file << "      /  |  \\      " << std::endl;
+    file << "     /   |   \\     " << std::endl;
+    file << "    *****|*****    " << std::endl;
+    file << "        |||        " << std::endl;
+    file << "        |||        " << std::endl;
+    file << "        |||        " << std::endl;
+    file << "==================="<< std::endl;
     file << "* creates a shrubbery at " << this->_target << " *" << std::endl;
     file.close();
 }

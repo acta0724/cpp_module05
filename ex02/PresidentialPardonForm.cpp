@@ -20,10 +20,8 @@ std::string const & PresidentialPardonForm::getTarget() const {
     return this->_target;
 }
 
-void PresidentialPardonForm::execute(Bureaucrat const & src) const {
-    if (src.getGrade() > this->getGradeToExecute()) {
-        throw GradeTooLowException();
-    }
+void PresidentialPardonForm::execute(Bureaucrat const & executor) const {
+    this->beExecuted(executor);
     std::cout << this->_target << " has been pardoned by Zaphod Beeblebrox" << std::endl;
 }
     

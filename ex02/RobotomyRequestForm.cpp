@@ -20,15 +20,12 @@ std::string const & RobotomyRequestForm::getTarget() const {
     return this->_target;
 }
 
-void RobotomyRequestForm::execute(Bureaucrat const & src) const {
-    if (src.getGrade() > this->getGradeToExecute()) {
-        throw GradeTooLowException();
-    }
-	// random 50% chance of success
+void RobotomyRequestForm::execute(Bureaucrat const & executor) const {
+    this->beExecuted(executor);
     std::cout << "* drilling noises *" << std::endl;
-	if (rand() % 2 == 0) {
-		std::cout << this->_target << " has been robotomized successfully" << std::endl;
-	} else {
-		std::cout << this->_target << " has been robotomized unsuccessfully" << std::endl;
-	}
+    if (rand() % 2 == 0) {
+        std::cout << this->_target << " has been robotomized successfully" << std::endl;
+    } else {
+        std::cout << this->_target << " has been robotomized unsuccessfully" << std::endl;
+    }
 }
