@@ -1,12 +1,16 @@
+#include <iostream>
+#include <string>
 #include "Bureaucrat.hpp"
 
 Bureaucrat::Bureaucrat() : _name(""), _grade(150) {}
 
-Bureaucrat::Bureaucrat(std::string const & name, int grade) : _name(name), _grade(grade) {}
+Bureaucrat::Bureaucrat(std::string const & name, int grade) \
+    : _name(name), _grade(grade) {}
 
 Bureaucrat::~Bureaucrat() {}
 
-Bureaucrat::Bureaucrat(Bureaucrat const & src) : _name(src._name), _grade(src._grade) {}
+Bureaucrat::Bureaucrat(Bureaucrat const & src) \
+    : _name(src._name), _grade(src._grade) {}
 
 Bureaucrat & Bureaucrat::operator=(Bureaucrat const & src) {
     if (this != &src) {

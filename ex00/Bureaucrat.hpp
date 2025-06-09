@@ -2,9 +2,9 @@
 #define BUREAUCRAT_HPP
 
 #include <iostream>
+#include <string>
 
-class Bureaucrat
-{
+class Bureaucrat {
  private:
     std::string const   _name;
     int                 _grade;
@@ -20,13 +20,12 @@ class Bureaucrat
     void    incrementGrade();
     void    decrementGrade();
 
-    class GradeTooHighException : public std::exception
-    {
+    class GradeTooHighException : public std::exception {
      public:
         const char * what() const throw();
     };
-    class GradeTooLowException : public std::exception
-    {
+
+    class GradeTooLowException : public std::exception {
      public:
         const char * what() const throw();
     };
