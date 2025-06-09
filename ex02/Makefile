@@ -5,6 +5,7 @@ FLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRCS = AForm.cpp Bureaucrat.cpp main.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp
 OBJS = $(SRCS:.cpp=.o)
+SHRUBBERY = garden.shrubbery
 
 all: $(NAME)
 
@@ -16,6 +17,7 @@ $(NAME): $(OBJS)
 
 clean:
 	rm -f $(OBJS)
+	rm -f $(SHRUBBERY)
 
 fclean: clean
 	rm -f $(NAME)
