@@ -1,10 +1,16 @@
+#include <iostream>
+#include <string>
 #include "AForm.hpp"
 
-AForm::AForm() : _name(""), _signed(false), _gradeToSign(150), _gradeToExecute(150) {}
+AForm::AForm() : _name(""), _signed(false), _gradeToSign(150), \
+    _gradeToExecute(150) {}
 
-AForm::AForm(std::string const & name, int gradeToSign, int gradeToExecute) : _name(name), _signed(false), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute) {}
+AForm::AForm(std::string const & name, int gradeToSign, int gradeToExecute) : \
+    _name(name), _signed(false), _gradeToSign(gradeToSign), \
+    _gradeToExecute(gradeToExecute) {}
 
-AForm::AForm(AForm const & src) : _name(src._name), _signed(src._signed), _gradeToSign(src._gradeToSign), _gradeToExecute(src._gradeToExecute) {}
+AForm::AForm(AForm const & src) : _name(src._name), _signed(src._signed), \
+    _gradeToSign(src._gradeToSign), _gradeToExecute(src._gradeToExecute) {}
 
 AForm & AForm::operator=(AForm const & src) {
     if (this != &src) {
@@ -60,7 +66,8 @@ void AForm::beExecuted(Bureaucrat const & executor) const {
 }
 
 std::ostream & operator<<(std::ostream & o, AForm const & src) {
-    o << src.getName() << ", form grade " << src.getGradeToSign() << ", execute grade " << src.getGradeToExecute() << ", signed " << src.getSigned();
+    o << src.getName() << ", form grade " << src.getGradeToSign() \
+        << ", execute grade " << src.getGradeToExecute() \
+        << ", signed " << src.getSigned();
     return o;
 }
-    

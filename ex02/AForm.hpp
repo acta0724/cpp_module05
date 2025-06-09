@@ -2,10 +2,10 @@
 #define AFORM_HPP
 
 #include <iostream>
+#include <string>
 #include "Bureaucrat.hpp"
 
-class AForm
-{
+class AForm {
  private:
     std::string const   _name;
     bool                _signed;
@@ -25,19 +25,18 @@ class AForm
     int getGradeToExecute() const;
     void beSigned(Bureaucrat const & src);
     void beExecuted(Bureaucrat const & executor) const;
-	virtual void execute(Bureaucrat const & executor) const = 0;
-    class GradeTooHighException : public std::exception
-    {
+    virtual void execute(Bureaucrat const & executor) const = 0;
+    class GradeTooHighException : public std::exception {
      public:
         const char * what() const throw();
     };
-    class GradeTooLowException : public std::exception
-    {
+
+    class GradeTooLowException : public std::exception {
      public:
         const char * what() const throw();
     };
-    class FormNotSignedException : public std::exception
-    {
+
+    class FormNotSignedException : public std::exception {
      public:
         const char * what() const throw();
     };

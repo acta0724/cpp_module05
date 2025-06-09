@@ -1,16 +1,17 @@
 #ifndef ROBOTOMYREQUESTFORM_HPP
 #define ROBOTOMYREQUESTFORM_HPP
 
+#include <cstdlib>
+#include <string>
 #include "AForm.hpp"
 
-class RobotomyRequestForm : public AForm
-{
+class RobotomyRequestForm : public AForm {
  private:
     std::string _target;
 
  public:
     RobotomyRequestForm();
-    RobotomyRequestForm(std::string const & target);
+    explicit RobotomyRequestForm(std::string const & target);
     RobotomyRequestForm(RobotomyRequestForm const & src);
     RobotomyRequestForm & operator=(RobotomyRequestForm const & src);
     ~RobotomyRequestForm();
