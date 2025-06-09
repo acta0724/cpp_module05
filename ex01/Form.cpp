@@ -1,10 +1,15 @@
 #include "Form.hpp"
+#include <string>
 
-Form::Form() : _name(""), _signed(false), _gradeToSign(150), _gradeToExecute(150) {}
+Form::Form() : _name(""), _signed(false), _gradeToSign(150), \
+    _gradeToExecute(150) {}
 
-Form::Form(std::string const & name, int gradeToSign, int gradeToExecute) : _name(name), _signed(false), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute) {}
+Form::Form(std::string const & name, int gradeToSign, int gradeToExecute) \
+    : _name(name), _signed(false), _gradeToSign(gradeToSign), \
+    _gradeToExecute(gradeToExecute) {}
 
-Form::Form(Form const & src) : _name(src._name), _signed(src._signed), _gradeToSign(src._gradeToSign), _gradeToExecute(src._gradeToExecute) {}
+Form::Form(Form const & src) : _name(src._name), _signed(src._signed),\
+     _gradeToSign(src._gradeToSign), _gradeToExecute(src._gradeToExecute) {}
 
 Form & Form::operator=(Form const & src) {
     if (this != &src) {
@@ -47,7 +52,8 @@ const char * Form::GradeTooLowException::what() const throw() {
 }
 
 std::ostream & operator<<(std::ostream & o, Form const & src) {
-    o << src.getName() << ", form grade " << src.getGradeToSign() << ", execute grade " << src.getGradeToExecute() << ", signed " << src.getSigned();
+    o << src.getName() << ", form grade " << src.getGradeToSign() \
+        << ", execute grade " << src.getGradeToExecute() \
+        << ", signed " << src.getSigned();
     return o;
 }
-    

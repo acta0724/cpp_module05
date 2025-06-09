@@ -2,10 +2,10 @@
 #define FORM_HPP
 
 #include <iostream>
+#include <string>
 #include "Bureaucrat.hpp"
 
-class Form
-{
+class Form {
  private:
     std::string const   _name;
     bool                _signed;
@@ -25,13 +25,12 @@ class Form
     int getGradeToExecute() const;
     void beSigned(Bureaucrat const & src);
 
-    class GradeTooHighException : public std::exception
-    {
+    class GradeTooHighException : public std::exception {
      public:
         const char * what() const throw();
     };
-    class GradeTooLowException : public std::exception
-    {
+
+    class GradeTooLowException : public std::exception {
      public:
         const char * what() const throw();
     };

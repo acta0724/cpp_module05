@@ -1,13 +1,17 @@
+#include <iostream>
+#include <string>
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
 
 Bureaucrat::Bureaucrat() : _name(""), _grade(150) {}
 
-Bureaucrat::Bureaucrat(std::string const & name, int grade) : _name(name), _grade(grade) {}
+Bureaucrat::Bureaucrat(std::string const & name, int grade) \
+    : _name(name), _grade(grade) {}
 
 Bureaucrat::~Bureaucrat() {}
 
-Bureaucrat::Bureaucrat(Bureaucrat const & src) : _name(src._name), _grade(src._grade) {}
+Bureaucrat::Bureaucrat(Bureaucrat const & src) \
+    : _name(src._name), _grade(src._grade) {}
 
 Bureaucrat & Bureaucrat::operator=(Bureaucrat const & src) {
     if (this != &src) {
@@ -51,7 +55,8 @@ void Bureaucrat::signForm(Form & src) {
         src.beSigned(*this);
     }
     catch (std::exception & e) {
-        std::cout << _name << " cannot sign " << src.getName() << " because " << e.what() << std::endl;
+        std::cout << _name << " cannot sign " << \
+            src.getName() << " because " << e.what() << std::endl;
         return;
     }
     std::cout << _name << " signs " << src.getName() << std::endl;
