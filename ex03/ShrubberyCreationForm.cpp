@@ -1,11 +1,16 @@
 #include <fstream>
+#include <iostream>
+#include <string>
 #include "ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm() : AForm("ShrubberyCreationForm", 145, 137) {}
+ShrubberyCreationForm::ShrubberyCreationForm() : \
+    AForm("ShrubberyCreationForm", 145, 137) {}
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string const & target) : AForm("ShrubberyCreationForm", 145, 137), _target(target) {}
+ShrubberyCreationForm::ShrubberyCreationForm(std::string const & target) : \
+    AForm("ShrubberyCreationForm", 145, 137), _target(target) {}
 
-ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const & src) : AForm(src), _target(src._target) {}
+ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const & src) : \
+    AForm(src), _target(src._target) {}
 
 ShrubberyCreationForm & ShrubberyCreationForm::operator=(ShrubberyCreationForm const & src) {
     if (this != &src) {
@@ -42,7 +47,8 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor) const {
     file << "        |||        " << std::endl;
     file << "        |||        " << std::endl;
     file << "        |||        " << std::endl;
-    file << "==================="<< std::endl;
-    file << "* creates a shrubbery at " << this->_target << " *" << std::endl;
+    file << "===================" << std::endl;
+    file << "* creates a shrubbery at " \
+        << this->_target << " *" << std::endl;
     file.close();
 }

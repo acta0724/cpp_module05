@@ -1,3 +1,5 @@
+#include <string>
+#include <iostream>
 #include "Intern.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
@@ -37,7 +39,7 @@ AForm* Intern::makeForm(std::string const & formName, std::string const & target
         std::string name;
         AForm* (*create)(std::string const &);
     };
-    
+
     FormType forms[] = {
         {"shrubbery creation", createShrubberyForm},
         {"robotomy request", createRobotomyForm},

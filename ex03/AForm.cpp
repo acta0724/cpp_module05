@@ -1,3 +1,4 @@
+#include <string>
 #include "AForm.hpp"
 
 AForm::AForm() : _name(""), _signed(false), _gradeToSign(150), \
@@ -64,7 +65,8 @@ void AForm::beExecuted(Bureaucrat const & executor) const {
 }
 
 std::ostream & operator<<(std::ostream & o, AForm const & src) {
-    o << src.getName() << ", form grade " << src.getGradeToSign() << ", execute grade " << src.getGradeToExecute() << ", signed " << src.getSigned();
+    o << src.getName() << ", form grade " \
+        << src.getGradeToSign() << ", execute grade " \
+        << src.getGradeToExecute() << ", signed " << src.getSigned();
     return o;
 }
-    

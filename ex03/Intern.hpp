@@ -2,11 +2,11 @@
 #define INTERN_HPP
 
 #include <iostream>
+#include <string>
 #include "AForm.hpp"
 
-class Intern
-{
-public:
+class Intern {
+ public:
     Intern();
     Intern(Intern const & src);
     Intern & operator=(Intern const & src);
@@ -14,8 +14,7 @@ public:
 
     AForm* makeForm(std::string const & formName, std::string const & target) const;
 
-    class FormNotFoundException : public std::exception
-    {
+    class FormNotFoundException : public std::exception {
      public:
         const char * what() const throw();
     };

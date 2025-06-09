@@ -1,10 +1,15 @@
+#include <string>
+#include <iostream>
 #include "PresidentialPardonForm.hpp"
 
-PresidentialPardonForm::PresidentialPardonForm() : AForm("PresidentialPardonForm", 25, 5) {}
+PresidentialPardonForm::PresidentialPardonForm() : \
+    AForm("PresidentialPardonForm", 25, 5) {}
 
-PresidentialPardonForm::PresidentialPardonForm(std::string const & target) : AForm("PresidentialPardonForm", 25, 5), _target(target) {}
+PresidentialPardonForm::PresidentialPardonForm(std::string const & target) : \
+    AForm("PresidentialPardonForm", 25, 5), _target(target) {}
 
-PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm const & src) : AForm(src), _target(src._target) {}
+PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm const & src) : \
+    AForm(src), _target(src._target) {}
 
 PresidentialPardonForm & PresidentialPardonForm::operator=(PresidentialPardonForm const & src) {
     if (this != &src) {
@@ -22,6 +27,6 @@ std::string const & PresidentialPardonForm::getTarget() const {
 
 void PresidentialPardonForm::execute(Bureaucrat const & executor) const {
     this->beExecuted(executor);
-    std::cout << this->_target << " has been pardoned by Zaphod Beeblebrox" << std::endl;
+    std::cout << this->_target \
+        << " has been pardoned by Zaphod Beeblebrox" << std::endl;
 }
-    
