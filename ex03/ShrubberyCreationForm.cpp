@@ -28,7 +28,8 @@ std::string const & ShrubberyCreationForm::getTarget() const {
 
 void ShrubberyCreationForm::execute(Bureaucrat const & executor) const {
     this->beExecuted(executor);
-    std::ofstream file(this->_target + ".shrubbery");
+    std::string filename = this->_target + ".shrubbery";
+    std::ofstream file(filename.c_str());
     if (!file.is_open()) {
         std::cout << "Failed to create file" << std::endl;
         return;

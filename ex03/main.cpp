@@ -5,8 +5,6 @@
 #include <ctime>
 
 int main() {
-	std::srand(static_cast<unsigned int>(std::time(NULL)));
-
 	Bureaucrat president("President", 1);
 
 	std::cout << "=== Intern test ===" << std::endl;

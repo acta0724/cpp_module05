@@ -7,8 +7,6 @@
 #include <ctime>
 
 int main() {
-    // std::srand(static_cast<unsigned int>(std::time(NULL)));
-
     Bureaucrat highRank("HighRank", 1);
     Bureaucrat midRank("MidRank", 40);
     Bureaucrat lowRank("LowRank", 150);
